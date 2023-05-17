@@ -2,13 +2,14 @@ import 'dart:io';
 
 void main() {
   print("Enter your username and password to login");
-  stdout.write('Enter your username');
+  stdout.write('Enter your username:');
   var username = stdin.readLineSync();
   stdout.write('Enter your password: ');
   var password = stdin.readLineSync();
   print("username:$username");
   print("password:$password");
   print("login");
+  print('---------------');
 
   List<Map<String, dynamic>> shoppingCart = [];
 
