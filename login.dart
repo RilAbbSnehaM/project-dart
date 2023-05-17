@@ -9,7 +9,7 @@ void main() {
   print("username:$username");
   print("password:$password");
   print("login");
-  print('---------------');
+  print("------------");
 
   List<Map<String, dynamic>> shoppingCart = [];
 
