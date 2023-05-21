@@ -1,6 +1,6 @@
 import "dart:io";
 
-bool userData(var email, var password) {
+userData(var email, var password) {
   var user = ["admin@gmail", "user@gmail"];
   var pass = ["1234", "1111"];
   //print(user);
@@ -17,14 +17,17 @@ line() {
   print("********************************");
 }
 
-addcart() {
+void addcart() {
   print("Enter product name");
   var pname = stdin.readLineSync();
-  if (product(pname, 0)) {
+  if (product(pname, 0, 0)) {
     print("enter qty");
     var pqty = int.parse(stdin.readLineSync()!);
-    if (product(pname, pqty)) {
-      print("rate");
+    if (product(pname, pqty, 0)) {
+      print("Enter rate:");
+      var prate = double.parse(stdin.readLineSync()!);
+      var prod = product(pname, prate, pqty);
+      payment(product, prod);
     } else {
       print("qty not");
     }
@@ -33,7 +36,7 @@ addcart() {
   }
 }
 
-bool product(var pname, var qty) {
+product(var pname, var prate, var qty) {
   var productname = ['hat', 'maggi', 'toffes'];
   var rate = ['100', '150', '80'];
   var productqty = ['20', '10', '30'];
@@ -63,7 +66,14 @@ bool product(var pname, var qty) {
   return false;
 }
 
-bool login() {
+double total = 0.0;
+payment(product, prod) {
+  var amount = prod.rate * prod.quantity;
+  total += amount;
+  print("Payment: $amount");
+}
+
+login() {
   stdout.write("enter email");
   var email = stdin.readLineSync();
   stdout.write("enter password");
@@ -82,7 +92,7 @@ main() {
     if (ch == 1) {
       if (login()) {
         print("login");
-        product("", 0);
+        product("", 0, 0);
         addcart();
       } else {
         print("not login");

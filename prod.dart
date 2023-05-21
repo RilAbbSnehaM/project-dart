@@ -33,7 +33,7 @@ addcart() {
   }
 }
 
-bool product(var pname, var qty) {
+product(var pname, var qty) {
   var productname = ['hat', 'maggi', 'toffes'];
   var rate = ['100', '150', '80'];
   var productqty = ['20', '10', '30'];
@@ -60,6 +60,29 @@ bool product(var pname, var qty) {
   }
 
   return false;
+}
+
+List<String> productName = ['hat', 'maggi', 'toffes'];
+
+void removeFromaddtoCart(String pname) {
+  productName.remove(pname);
+}
+
+double total = 0.0;
+
+void payment(product prod) {
+  var amount = prod.rate * prod.quantity;
+  total += amount;
+  print("totalamt: $amount");
+  print("Enter useramt:");
+  var useramt = double.parse(stdin.readLineSync()!);
+
+  if (amount == useramt) {
+    print("Payment Successful");
+    print("Thanku!Visit Again");
+  } else {
+    print("Please Enter Exact Amount!");
+  }
 }
 
 bool login() {
