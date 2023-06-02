@@ -121,7 +121,7 @@ void main() {
         product("", 0);
         addCart();
         print('addtoCart Items before removal: $productName');
-        removeFromaddtoCart('toffes');
+        removeFromaddtoCart('hat');
         print('addtoCart Items after removal: $productName');
       }
     } else {
